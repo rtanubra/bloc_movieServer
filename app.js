@@ -1,9 +1,11 @@
 const express = require('express') //forgot to download express
 const morgan = require('morgan')
 const MOVIELIST= require('./movies-data.json')
+const cors = require('cors')
 
 const app = express()
 app.use(morgan('dev'))
+app.use(cors)
 app.use(AuthorizeToken)
 
 require('dotenv').config() //need to install dotenv
