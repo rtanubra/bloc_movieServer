@@ -23,7 +23,7 @@
     "express": "^4.17.0",
     "helmet": "^3.18.0"
   },
-  "engines":{
-    "node":"v10.15.3"
+  "engines": {
+    "node": "v10.15.3"
   }
 }
