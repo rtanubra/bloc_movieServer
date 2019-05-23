@@ -5,7 +5,8 @@ const cors = require('cors')
 const helmet = require('helmet')
 
 const app = express()
-app.use(morgan('tiny'))
+const morganValue = process.env.NODE_ENV === "production" ? "tiny" : "dev" 
+app.use(morgan(morganValue))
 app.use(cors())
 app.use(helmet())
 app.use(AuthorizeToken)
@@ -16,7 +17,6 @@ const API_TOKEN = process.env.API_TOKEN
 function AuthorizeToken(req,res,next){
     const authorization = req.get('Authorization')
     
-    console.log(authorization)
     if (!authorization){
         return res.status(401).json({error:"Unauthorized, please provide an api token"})
     }
