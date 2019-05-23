@@ -5,7 +5,7 @@ const cors = require('cors')
 const helmet = require('helmet')
 
 const app = express()
-app.use(morgan('dev'))
+app.use(morgan('tiny'))
 app.use(cors())
 app.use(helmet())
 app.use(AuthorizeToken)
